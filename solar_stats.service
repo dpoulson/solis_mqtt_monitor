@@ -1,0 +1,16 @@
+[Unit]
+Description=Solar Stats
+After=network.target
+ 
+[Service]
+Type=simple
+User=pi
+ExecStart=python3 server.py
+WorkingDirectory=/home/pi/
+StandardOutput=syslog
+StandardError=syslog
+Restart=on-failure
+ 
+[Install]
+WantedBy=network.target
+Alias=r2_control.service
